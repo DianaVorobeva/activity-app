@@ -13,9 +13,11 @@ function App() {
     setNewIdea(idea)
   }
 
+  const endpoint = "http://www.boredapi.com";
+
   useEffect(() => { 
    async function getIdea() {
-  const response = await fetch (`http://www.boredapi.com/api/activity/`);
+  const response = await fetch (`${endpoint}/api/activity/`);
   const data = await response.json();
   setIdea(data.activity);
 };
