@@ -13,14 +13,15 @@ function App() {
     setNewIdea(idea)
   }
 
+  async function getIdea() {
+    const response = await fetch (`${endpoint}/api/activity/`);
+    const data = await response.json();
+    setIdea(data.activity);
+  };
+
   const endpoint = "http://www.boredapi.com";
 
   useEffect(() => { 
-   async function getIdea() {
-  const response = await fetch (`${endpoint}/api/activity/`);
-  const data = await response.json();
-  setIdea(data.activity);
-};
 getIdea();
   },[newIdea]) 
 
